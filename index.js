@@ -3,6 +3,7 @@ var SlackBot = require('slackbots');
 
 // Settings file for the bot
 var Settings = require('./appsettings.json');
+var Token = require('./token.json');
 
 var BookedRoom = require('./bookedroom.js');
 
@@ -19,7 +20,7 @@ var Links = require('./links.js');
 
 // Add a bot https://my.slack.com/services/new/bot and put the token.
 var bot = new SlackBot({
-    token: Settings.botToken, 
+    token: Token.token, 
     name: 'Wubotdev'
 });
 
