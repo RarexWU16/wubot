@@ -40,6 +40,11 @@ module.exports = {
         var response = '---Tåg från ' + action + '---';
         var trains = Helpers.getTrains(location, trainApi);
 
+        if (Object.keys(trains).length === 0) {
+            bot.postMessage(channel, "Finns inga avgångar!", { icon_emoji: ":station:" });
+            return;
+        }
+        console.log(JSON.stringify(trains.RESPONSE.RESULT[0]));
         for (var i = 0; i < trains.RESPONSE.RESULT[0].TrainAnnouncement.length; i++) {
             if (trains.RESPONSE.RESULT[0].TrainAnnouncement[i].ToLocation[0].LocationName == toLocation) {
                 response += '\n Till ' + toLocationLong + ' : ' + trains.RESPONSE.RESULT[0].TrainAnnouncement[i].AdvertisedTimeAtLocation.split('T').pop();

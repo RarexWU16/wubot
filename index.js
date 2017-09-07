@@ -20,7 +20,7 @@ var Links = require('./links.js');
 // Add a bot https://my.slack.com/services/new/bot and put the token.
 var bot = new SlackBot({
     token: Settings.botToken, 
-    name: 'Wubot'
+    name: 'Wubotdev'
 });
 
 var defaultMonkey = Settings.defaultIcon;
